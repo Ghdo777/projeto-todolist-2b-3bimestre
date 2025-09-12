@@ -1,16 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity,  View } from 'react-native';
 import logo from './assets/todolist.png';
-import { TextInput } from 'react-native-web';
 import add from './assets/add.png';
 import { useState } from 'react';
 
 export default function App() {
   const [tarefa, setTarefa] = useState('')
+  const [tarefas, setTarefas] = useState([])
 
 
   const addAdicionar = () => {
-    Alert.alert("TODO list","Valor: " + tarefa);
+    //Alert.alert("TODO list","Valor: " + tarefa);
+    setTarefas([tarefa, ...tarefas]);
     setTarefa("")
   };
   return (
