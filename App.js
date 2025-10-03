@@ -25,11 +25,15 @@ export default function App() {
     setTarefa("")
   };
 
+  const btnExcluir = (item) => {
+   setTarefas(tarefas.filter((oldTarefas) => oldTarefas !== item)) 
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.viewItemRender}>
       <Checkbox value={false} />
       <Text style={styles.textItemRender}>{item}</Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => btnExcluir(item)}>
         <Image source={btnLixo} />
       </TouchableOpacity>
     </View>
